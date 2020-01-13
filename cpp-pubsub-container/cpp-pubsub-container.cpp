@@ -1,11 +1,24 @@
 ﻿// cpp-pubsub-container.cpp : このファイルには 'main' 関数が含まれています。プログラム実行の開始と終了がそこで行われます。
 //
-
 #include <iostream>
+#include "TestClass.h"
+#include "include/PubSubContainer.h"
+#include "include/ISubscribe.h"
 
 int main()
 {
-    std::cout << "Hello World!\n";
+	// TestClassインスタンスを生成
+	auto test1 = std::make_unique<TestClass>("TEST1");
+	auto test2 = std::make_unique<TestClass>("TEST2");
+
+	// 購読登録
+	PubSubContainer::Add(test1.get());
+	PubSubContainer::Add(test2.get());
+
+
+	// 発行
+	PubSubContainer::Publish("Publish");
+
 }
 
 // プログラムの実行: Ctrl + F5 または [デバッグ] > [デバッグなしで開始] メニュー
