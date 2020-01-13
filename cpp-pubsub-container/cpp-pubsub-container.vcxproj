@@ -147,6 +147,9 @@
   <ItemGroup>
     <ClCompile Include="cpp-pubsub-container.cpp" />
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="include\PubSubContainer.h" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
