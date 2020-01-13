@@ -6,6 +6,7 @@
 #include <map>
 #include <functional>
 #include <iostream>
+#include "ISubscribe.h"
 
 /*
   pub/sub簡易コンテナ(ヘッダーオンリー)
@@ -16,34 +17,34 @@ public:
     /*
       購読の追加
     */
-    static void Add(std::function<void(std::string)> method)
+    static void Add(ISubscribe* instance)
     {
         // 追加済み確認
-        if (container.find(method) != container.end()) {
+        if (container.find(instance) != container.end()) {
             // すでにメソッド登録済みで有効の場合
-            if (container[method]) {
+            if (container[instance]) {
                 // HACK 例外エラー：すでに存在
                 return;
             }
         }
 
         // 追加
-        container[method] = true;
+        container[instance] = true;
     }
 
     /*
       購読の削除
     */
-    static void Remove(std::function<void(std::string)> method)
+    static void Remove(ISubscribe* instance)
     {
         // 存在確認
-        if (container.find(method) == container.end()) {
+        if (container.find(instance) == container.end()) {
             // HACK 例外エラー：削除対象なし
             return;
         }
 
         // 論理削除
-        container[method] = false;
+        container[instance] = false;
     }
 
     /*
@@ -63,7 +64,7 @@ public:
         for (auto item = container.cbegin(); item != container.cend(); ++item) {
             // 有効なメソッドのみ実行
             if (item->second) {
-                item->first(message);
+                item->first->ReceiveMessage(message);
             }
         }
     }
@@ -72,12 +73,13 @@ private:
     /*
       コンテナ本体
     */
-    static std::map<std::function<void(std::string)>,bool> container;
+    static std::map<ISubscribe*, bool> container;
 };
 
-#ifdef PUBSUB_INIT
+#ifndef PUBSUB_INIT
 // 実体化
-std::map<std::function<void(std::string)>, bool> PubSubContainer::container{};
+std::map<ISubscribe*, bool> PubSubContainer::container{};
+#define PUBSUB_INIT
 #endif
 
 #endif //PUBSUBCONTAINER_H
