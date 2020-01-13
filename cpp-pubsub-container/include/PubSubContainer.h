@@ -16,7 +16,7 @@ public:
     /*
       購読の追加
     */
-    void Add(std::function<void(std::string)> method)
+    static void Add(std::function<void(std::string)> method)
     {
         // 追加済み確認
         if (container.find(method) != container.end()) {
@@ -34,7 +34,7 @@ public:
     /*
       購読の削除
     */
-    void Remove(std::function<void(std::string)> method)
+    static void Remove(std::function<void(std::string)> method)
     {
         // 存在確認
         if (container.find(method) == container.end()) {
@@ -49,7 +49,7 @@ public:
     /*
       購読の全削除
     */
-    void RemoveAll()
+    static void RemoveAll()
     {
         // 物理削除
         container.clear();
@@ -58,7 +58,7 @@ public:
     /*
       発行
     */
-    void Publish(std::string message)
+    static void Publish(std::string message)
     {
         for (auto item = container.cbegin(); item != container.cend(); ++item) {
             // 有効なメソッドのみ実行
