@@ -9,7 +9,7 @@
 #include "ISubscribe.h"
 
 /*
-  pub/sub簡易コンテナ(ヘッダーオンリー)
+  pub/sub簡易コンテナ
 */
 class PubSubContainer
 {
@@ -75,11 +75,5 @@ private:
     */
     static std::map<ISubscribe*, bool> container;
 };
-
-#ifndef PUBSUB_INIT
-// 実体化
-std::map<ISubscribe*, bool> PubSubContainer::container{};
-#define PUBSUB_INIT
-#endif
 
 #endif //PUBSUBCONTAINER_H
