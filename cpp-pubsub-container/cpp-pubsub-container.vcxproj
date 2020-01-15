@@ -149,6 +149,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="cpp-pubsub-container.cpp" />
+    <ClCompile Include="include\PubSubContainer.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\ISubscribe.h" />
