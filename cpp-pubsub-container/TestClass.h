@@ -3,9 +3,6 @@
 #ifndef TESTCLASS_H
 #define TESTCLASS_H
 
-#include <iostream>
-#include <functional>
-#include "include/PubSubContainer.h"
 #include "include/ISubscribe.h"
 
 class TestClass :public ISubscribe
