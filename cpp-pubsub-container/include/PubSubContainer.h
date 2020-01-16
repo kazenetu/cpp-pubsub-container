@@ -4,8 +4,6 @@
 #define PUBSUBCONTAINER_H
 
 #include <map>
-#include <functional>
-#include <iostream>
 #include "ISubscribe.h"
 
 /*
