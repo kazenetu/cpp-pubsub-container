@@ -3,7 +3,7 @@
 #ifndef TESTCLASS_H
 #define TESTCLASS_H
 
-#include "include/ISubscribe.h"
+#include "ISubscribe.h"
 
 class TestClass :public ISubscribe
 {
