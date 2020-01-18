@@ -4,21 +4,31 @@
 # 主な特徴
 * ISubscribeを継承したクラスのみSubscribe(購読:受信)として登録可能。
 * Publish(出版:送信)はどの処理からでも実行可能。
+* スタティックライブラリとして実装。
 
 # 利用方法
-* Visual Studioでの利用方法
-   * 「追加のインクルードディレクトリ」に「include」ディレクトリを追加
-   * 「include/PubSubContainer.cpp」をプロジェクトに追加
+* Visual Studioでの利用方法  
+  **本ライブラリを利用するプロジェクトは下記を設定する。**  
+  ※詳細は[example](example/)を参照
+   * 対象ソリューションにpubsub-container」プロジェクトを追加 (同時にライブラリのビルドを行う場合)
+
+   * 「プロジェクトの依存関係」で「pubsub-container」プロジェクトにチェック (同時にライブラリのビルドを行う場合)
+
+   * 「C/C++」の「追加のインクルードディレクトリ」に  
+     「pubsub-container/include」ディレクトリを追加
+
+   * 「リンカー」－「入力」の「追加の依存ファイル」に  
+     「$(SolutionDir)$(Platform)\$(Configuration)\pubsub-container.lib」を追加
 
 # 実装例
-## Subscribe(購読:受信)用クラス
+## Subscribe(購読:受信)用クラス:**example/class/TestClass.h**
 ```cpp
 #pragma once
 
 #ifndef TESTCLASS_H
 #define TESTCLASS_H
 
-#include "include/ISubscribe.h"
+#include "ISubscribe.h"
 
 class TestClass :public ISubscribe
 {
@@ -43,10 +53,10 @@ private:
 ```
 
 
-## 利用例
+## 利用例:**example/main.cpp**
 ```cpp
-#include "TestClass.h"
-#include "include/PubSubContainer.h"
+#include "class/TestClass.h"
+#include "PubSubContainer.h"
 
 int main() {
 	// TestClassインスタンスを生成
