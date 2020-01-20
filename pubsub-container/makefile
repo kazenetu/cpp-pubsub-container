@@ -11,7 +11,8 @@ CXX := g++
 INCLUDE := -I /usr/local/include -I /usr/include -I./include
 CXXFLAGS := -Wall -O2 
 LDFLAGS := -L /usr/lib -L /usr/local/lib 
-OBJS := $(BUILDPATH)/PubSubContainer.o
+SRCS := $(shell find $(SRCPATH) -name '*.cpp')
+OBJS :=  $(patsubst $(SRCPATH)/%,$(BUILDPATH)/%,$(SRCS:.cpp=.o))
 
 $(LIBPATH)/$(LIBNAME):$(OBJS)
 	mkdir -p $(LIBPATH)
