@@ -21,3 +21,9 @@ $(LIBPATH)/$(LIBNAME):$(OBJS)
 $(BUILDPATH)/%.o : $(SRCPATH)/%.cpp
 	mkdir -p  $(BUILDPATH)
 	$(CXX) $(CXXFLAGS) $(INCLUDE) $(LDFLAGS)-o $@ -c $^
+
+.PHONY: clean
+ 
+clean:
+	rm -r $(BUILDPATH)
+	rm -r $(LIBPATH)
