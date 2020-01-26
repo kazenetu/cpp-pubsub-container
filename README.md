@@ -6,6 +6,16 @@
 * Publish(出版:送信)はどの処理からでも実行可能。
 * スタティックライブラリとして実装。
 
+# 機能詳細
+|クラス・メソッド|概要|備考|
+|---------------|-----------|-----------|
+|ISubscribe|Subscribe(購読:受信)クラス継承用<br>スーパークラス|・public継承<br>・void ReceiveMessage(std::string message)の実装が必要|
+|PubSubContainer::Add(ISubscribe* instance)|Subscribe(購読:受信)インスタンス追加|追加したインスタンスに対してpublishしたメッセージが送信される|
+|PubSubContainer::Publish(std::string message)|追加したSubscribeインスタンスに対してメッセージを一斉送信する|SubscribeインスタンスのReceiveMessageメソッドが呼び出される|
+|PubSubContainer::Remove(ISubscribe* instance)|追加済みSubscribeインスタンスを送信対象から除外する|第一パラメータに除外対象のSubscribeインスタンスを指定する|
+|PubSubContainer::RemoveAll()|追加済みSubscribeインスタンス全てを送信対象から除外する||
+
+
 # 実装例
 ## Subscribe(購読:受信)用クラス:**example/class/TestClass.h**
 ```cpp
