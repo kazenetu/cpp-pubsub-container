@@ -65,9 +65,9 @@ name:TEST2 message:Publish
 name:TEST1 message:Publish
 ```
 
-# 利用方法
-* Visual Studioでの利用方法  
-  **本ライブラリを利用するプロジェクトは下記を設定する。**  
+# ビルド(コンパイル)方法
+* Visual Studioでのビルド方法  
+  **本ライブラリを使用するプロジェクトは下記を設定する。**  
   ※詳細は[example](example/)を参照
    * 対象ソリューションにpubsub-container」プロジェクトを追加 (同時にライブラリのビルドを行う場合)
 
@@ -79,7 +79,7 @@ name:TEST1 message:Publish
    * 「リンカー」－「入力」の「追加の依存ファイル」に  
      「$(SolutionDir)$(Platform)\$(Configuration)\pubsub-container.lib」を追加
 
-* makeコマンドでの利用方法  
+* makでのコンパイル・リンク方法  
   1. 事前手順：簡易pub/subコンテナのコンパイル
     * pubsub-containerをスタティックライブラリとしてコンパイルする  
 	  ※```./lib/libpubsub.a```が作成される  
@@ -88,8 +88,8 @@ name:TEST1 message:Publish
 	  make clean
       make
 	  ```
-  1. 利用側のコンパイル  
-  **本ライブラリを利用する場合は下記を設定する。**  
+  1. ライブラリ使用側のコンパイル・リンク  
+  **本ライブラリを使用する場合は下記を設定する。**  
   [example/makefile](example/makefile)を参照  
     ```makefile
 	#!/bin/make
