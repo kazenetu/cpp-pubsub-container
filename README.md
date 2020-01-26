@@ -79,8 +79,8 @@ name:TEST1 message:Publish
    * 「リンカー」－「入力」の「追加の依存ファイル」に  
      「$(SolutionDir)$(Platform)\$(Configuration)\pubsub-container.lib」を追加
 
-* makでのコンパイル・リンク方法  
-  1. 事前手順：簡易pub/subコンテナのコンパイル
+* makでのコンパイル・リンク方法
+ 1. 事前手順：簡易pub/subコンテナのコンパイル
     * pubsub-containerをスタティックライブラリとしてコンパイルする  
 	  ※```./lib/libpubsub.a```が作成される  
 	  ```sh
@@ -88,7 +88,7 @@ name:TEST1 message:Publish
 	  make clean
       make
 	  ```
-  1. ライブラリ使用側のコンパイル・リンク  
+ 1. ライブラリ使用側のコンパイル・リンク  
   **本ライブラリを使用する場合は下記を設定する。**  
   [example/makefile](example/makefile)を参照  
     ```makefile
@@ -123,7 +123,7 @@ name:TEST1 message:Publish
 		rm -r $(BUILDPATH)
 		rm -r $(BINPATH)  
     ```  
-	**追加内容**  
+   **追加内容**  
    1. cppファイルコンパイル時のincludeディレクトリに```pubsub-container/include```を追加
 
    1. cppファイルコンパイル時とリンク時のライブラリディレクトリに```pubsub-container/lib```を追加
