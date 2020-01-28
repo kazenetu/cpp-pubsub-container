@@ -130,8 +130,8 @@ name:TEST1 message:Publish
 	.PHONY: clean
 	
 	clean:
-		rm -r $(BUILDPATH)
-		rm -r $(BINPATH)  
+		rm -rf $(BUILDPATH)
+		rm -rf $(BINPATH)  
     ```  
    **追加内容**  
    1. cppファイルコンパイル時のincludeディレクトリに```pubsub-container/include```を追加
