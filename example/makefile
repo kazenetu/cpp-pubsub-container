@@ -26,5 +26,5 @@ $(BUILDPATH)/%.o : $(SRCPATH)/%.cpp
 .PHONY: clean
  
 clean:
-	rm -r $(BUILDPATH)
-	rm -r $(BINPATH)
+	rm -rf $(BUILDPATH)
+	rm -rf $(BINPATH)
