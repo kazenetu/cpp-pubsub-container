@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 
 #ifndef ISUBSCRIBE_H
 #define ISUBSCRIBE_H
@@ -6,14 +6,14 @@
 #include <iostream>
 
 /*
-  w“Ç—pƒCƒ“ƒ^[ƒtƒF[ƒXƒNƒ‰ƒX
+  è³¼èª­ç”¨ã‚¤ãƒ³ã‚¿ãƒ¼ãƒ•ã‚§ãƒ¼ã‚¹ã‚¯ãƒ©ã‚¹
 */
 class ISubscribe
 {
 public:
 
     /*
-      ƒƒbƒZ[ƒWóM
+      ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸å—ä¿¡
     */
     virtual void ReceiveMessage(std::string message) {};
 };

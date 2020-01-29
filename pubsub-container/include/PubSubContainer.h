@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 
 #ifndef PUBSUBCONTAINER_H
 #define PUBSUBCONTAINER_H
@@ -7,60 +7,60 @@
 #include "ISubscribe.h"
 
 /*
-  pub/subŠÈˆÕƒRƒ“ƒeƒi
+  pub/subç°¡æ˜“ã‚³ãƒ³ãƒ†ãƒŠ
 */
 class PubSubContainer
 {
 public:
     /*
-      w“Ç‚Ì’Ç‰Á
+      è³¼èª­ã®è¿½åŠ 
     */
     static void Add(ISubscribe* instance)
     {
-        // ’Ç‰ÁÏ‚ÝŠm”F
+        // è¿½åŠ æ¸ˆã¿ç¢ºèª
         if (container.find(instance) != container.end()) {
-            // ‚·‚Å‚Éƒƒ\ƒbƒh“o˜^Ï‚Ý‚Å—LŒø‚Ìê‡
+            // ã™ã§ã«ãƒ¡ã‚½ãƒƒãƒ‰ç™»éŒ²æ¸ˆã¿ã§æœ‰åŠ¹ã®å ´åˆ
             if (container[instance]) {
-                // HACK —áŠOƒGƒ‰[F‚·‚Å‚É‘¶Ý
+                // HACK ä¾‹å¤–ã‚¨ãƒ©ãƒ¼ï¼šã™ã§ã«å­˜åœ¨
                 return;
             }
         }
 
-        // ’Ç‰Á
+        // è¿½åŠ 
         container[instance] = true;
     }
 
     /*
-      w“Ç‚Ìíœ
+      è³¼èª­ã®å‰Šé™¤
     */
     static void Remove(ISubscribe* instance)
     {
-        // ‘¶ÝŠm”F
+        // å­˜åœ¨ç¢ºèª
         if (container.find(instance) == container.end()) {
-            // HACK —áŠOƒGƒ‰[Fíœ‘ÎÛ‚È‚µ
+            // HACK ä¾‹å¤–ã‚¨ãƒ©ãƒ¼ï¼šå‰Šé™¤å¯¾è±¡ãªã—
             return;
         }
 
-        // ˜_—íœ
+        // è«–ç†å‰Šé™¤
         container[instance] = false;
     }
 
     /*
-      w“Ç‚Ì‘Síœ
+      è³¼èª­ã®å…¨å‰Šé™¤
     */
     static void RemoveAll()
     {
-        // •¨—íœ
+        // ç‰©ç†å‰Šé™¤
         container.clear();
     }
 
     /*
-      ”­s
+      ç™ºè¡Œ
     */
     static void Publish(std::string message)
     {
         for (auto item = container.cbegin(); item != container.cend(); ++item) {
-            // —LŒø‚Èƒƒ\ƒbƒh‚Ì‚ÝŽÀs
+            // æœ‰åŠ¹ãªãƒ¡ã‚½ãƒƒãƒ‰ã®ã¿å®Ÿè¡Œ
             if (item->second) {
                 item->first->ReceiveMessage(message);
             }
@@ -69,7 +69,7 @@ public:
 
 private:
     /*
-      ƒRƒ“ƒeƒi–{‘Ì
+      ã‚³ãƒ³ãƒ†ãƒŠæœ¬ä½“
     */
     static std::map<ISubscribe*, bool> container;
 };

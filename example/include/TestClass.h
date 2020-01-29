@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 
 #ifndef TESTCLASS_H
 #define TESTCLASS_H
@@ -15,11 +15,11 @@ public:
 	}
 
 	/*
-	  ƒƒbƒZ[ƒWóM
+	  ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸å—ä¿¡
 	*/
 	void ReceiveMessage(std::string message)
 	{
-		// ƒƒbƒZ[ƒW‚ğ•\¦
+		// ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã‚’è¡¨ç¤º
 		std::cout << "name:" << instanceName << " message:" << message << "\n";
 	}
 

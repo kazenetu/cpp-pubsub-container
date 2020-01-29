@@ -1,4 +1,4 @@
-#include "../include/PubSubContainer.h"
+ï»¿#include "../include/PubSubContainer.h"
 
-// ŽÀ‘Ì‰»
+// å®Ÿä½“åŒ–
 std::map<ISubscribe*, bool> PubSubContainer::container{};
