@@ -90,6 +90,7 @@ name:TEST1 message:Publish
      「$(SolutionDir)$(Platform)\$(Configuration)\pubsub-container.lib」を追加
 
 * makeでのコンパイル・リンク方法  
+  [example/make.sh](example/make.sh)でも下記のスタティックライブラリの作成とコンパイル・リンクが行える。
  1. 事前手順：簡易pub/subコンテナのコンパイル
     * pubsub-containerをスタティックライブラリとしてコンパイルする  
 	  ※```./lib/libpubsub.a```が作成される  
