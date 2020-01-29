@@ -79,24 +79,24 @@ name:TEST1 message:Publish
 * Visual Studioでのビルド方法  
   **本ライブラリを使用するプロジェクトは下記を設定する。**  
   ※詳細は[example](example/)を参照
-   * 対象ソリューションにpubsub-container」プロジェクトを追加 (同時にライブラリのビルドを行う場合)
+   * 対象ソリューションにpubsub-container」プロジェクトを追加。 (同時にライブラリのビルドを行う場合)
 
-   * 「プロジェクトの依存関係」で「pubsub-container」プロジェクトにチェック (同時にライブラリのビルドを行う場合)
+   * 「プロジェクトの依存関係」で「pubsub-container」プロジェクトにチェック。 (同時にライブラリのビルドを行う場合)
 
    * 「C/C++」の「追加のインクルードディレクトリ」に  
-     「pubsub-container/include」ディレクトリを追加
+     「pubsub-container/include」ディレクトリを追加。
 
    * 「リンカー」－「入力」の「追加の依存ファイル」に  
-     「$(SolutionDir)$(Platform)\$(Configuration)\pubsub-container.lib」を追加
+     「$(SolutionDir)$(Platform)\$(Configuration)\pubsub-container.lib」を追加。
 
    **実行方法**  
-  1. Visual Studioでexample.slnを開く
-  1. デバッグ実行を実施する
+  1. Visual Studioでexample.slnを開く。
+  1. デバッグ実行を実施する。
 
 * makeでのコンパイル・リンク方法  
   [example/make.sh](example/make.sh)でも下記のスタティックライブラリの作成とコンパイル・リンクが行える。
  1. 事前手順：簡易pub/subコンテナのコンパイル
-    * pubsub-containerをスタティックライブラリとしてコンパイルする  
+    * pubsub-containerをスタティックライブラリとしてコンパイルする。  
 	  ※```./lib/libpubsub.a```が作成される  
 	  ```sh
 	  cd pubsub-container
@@ -139,11 +139,11 @@ name:TEST1 message:Publish
 		rm -rf $(BINPATH)  
     ```  
    **追加内容**  
-   1. cppファイルコンパイル時のincludeディレクトリに```pubsub-container/include```を追加
+   1. cppファイルコンパイル時のincludeディレクトリに```pubsub-container/include```を追加。
 
-   1. cppファイルコンパイル時とリンク時のライブラリディレクトリに```pubsub-container/lib```を追加
+   1. cppファイルコンパイル時とリンク時のライブラリディレクトリに```pubsub-container/lib```を追加。
    
-   1. リンク時のスタティックライブラリに```libpubsub.a```を追加  
+   1. リンク時のスタティックライブラリに```libpubsub.a```を追加。  
    ※```-lpubsub```と省略  
 
    **実行方法**  
