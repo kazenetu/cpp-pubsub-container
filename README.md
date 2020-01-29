@@ -89,6 +89,10 @@ name:TEST1 message:Publish
    * 「リンカー」－「入力」の「追加の依存ファイル」に  
      「$(SolutionDir)$(Platform)\$(Configuration)\pubsub-container.lib」を追加
 
+   **実行方法**  
+  1. Visual Studioでexample.slnを開く
+  1. デバッグ実行を実施する
+
 * makeでのコンパイル・リンク方法  
   [example/make.sh](example/make.sh)でも下記のスタティックライブラリの作成とコンパイル・リンクが行える。
  1. 事前手順：簡易pub/subコンテナのコンパイル
@@ -140,4 +144,10 @@ name:TEST1 message:Publish
    1. cppファイルコンパイル時とリンク時のライブラリディレクトリに```pubsub-container/lib```を追加
    
    1. リンク時のスタティックライブラリに```libpubsub.a```を追加  
-   ※```-lpubsub```と省略
+   ※```-lpubsub```と省略  
+
+   **実行方法**  
+   ```bin/example.out```を実行する。
+   ```sh
+   ./bin/example.out
+   ```
